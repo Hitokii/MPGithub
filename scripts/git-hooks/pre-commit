@@ -1,0 +1,32 @@
+#!/bin/bash
+# Add this file in .git/hooks/ as 'pre-commit'
+
+
+INFOPATH=suivi
+INFOFILE=commitInfo.txt
+
+read -p "Sauvegarde des informations du commit (y/[n]) ?" yn < /dev/tty
+yn=${yn:-n}
+
+case $yn in
+ [Yy]* )
+
+  # Création du dossier s'il n'existe pas
+  mkdir -p $INFOPATH
+
+  # Écriture des infos dans le fichier
+  echo "Date: $(date)" > $INFOPATH/$INFOFILE
+  echo "Utilisateur: $(git config user.name)" >> $INFOPATH/$INFOFILE
+  echo "Branche: $(git branch --show-current)" >> $INFOPATH/$INFOFILE
+  echo "Commit préparé avec les fichiers suivants :" >> $INFOPATH/$INFOFILE
+  git diff --cached --name-only >> $INFOPATH/$INFOFILE
+
+  # Ajout du fichier au commit
+  git add $INFOPATH/$INFOFILE
+
+  exit 0;;
+ [Nn]* )
+  exit 0;;
+esac
+
+exit 0
