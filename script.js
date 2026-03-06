@@ -17,7 +17,9 @@ const content = `
   <p>${CONSTANTE.HELLO_WORLD_TEXT}</p>
 </body>
 <style>
-  body {}
+  body {
+    background-color: yellow;
+  }
   p {
     position: absolute;
     top: 50%;
