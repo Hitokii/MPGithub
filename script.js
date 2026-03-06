@@ -23,8 +23,8 @@ const content = `
   p {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 0%;
+    transform: translate(-0%, -50%);
     color: blue;
   }
 </style>
@@ -33,7 +33,7 @@ const content = `
 
 
 function createWindow() {
-  mainWindow = new BrowserWindow({ width: 1200, height: 800});
+  mainWindow = new BrowserWindow({ width: 1500, height: 800});
   mainWindow.setTitle(CONSTANTE.HELLO_WORLD_TITLE);
   mainWindow.loadURL(`data:text/html;charset=utf-8,${encodeURI(content)}`);
   mainWindow.on('closed', function() {
