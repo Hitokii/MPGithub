@@ -31,7 +31,7 @@ const content = `
 
 
 function createWindow() {
-  mainWindow = new BrowserWindow({ width: 200, height: 200});
+  mainWindow = new BrowserWindow({ width: 1200, height: 800});
   mainWindow.setTitle(CONSTANTE.HELLO_WORLD_TITLE);
   mainWindow.loadURL(`data:text/html;charset=utf-8,${encodeURI(content)}`);
   mainWindow.on('closed', function() {
