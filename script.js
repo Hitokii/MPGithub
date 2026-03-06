@@ -1,4 +1,5 @@
   const electron = require('electron');
+const { CONSTANTE } = require('./constantes');
 
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
@@ -13,7 +14,7 @@ const content = `
   <meta charset="UTF-8">
 </head>
 <body>
-  <p>Hello world</p>
+  <p>${CONSTANTE.HELLO_WORLD_TEXT}</p>
 </body>
 <style>
   body {}
@@ -31,7 +32,7 @@ const content = `
 
 function createWindow() {
   mainWindow = new BrowserWindow({ width: 200, height: 200});
-  mainWindow.setTitle("Hello World");
+  mainWindow.setTitle(CONSTANTE.HELLO_WORLD_TITLE);
   mainWindow.loadURL(`data:text/html;charset=utf-8,${encodeURI(content)}`);
   mainWindow.on('closed', function() {
     mainWindow = null;
