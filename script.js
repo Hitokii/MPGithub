@@ -18,8 +18,8 @@ const content = `
 </body>
 <style>
   body {
-    background-color: yellow;
-  }
+  background-color: lime;  
+}
   p {
     position: absolute;
     top: 50%;
